@@ -1,0 +1,1 @@
+AI-Powered Text Processing Interface using Chrome's AI APIs. Built with React and Tailwind CSS. This application allows users to input text and utilize features such as summarization, translation, and language detection. Users are able to interact with a clean, responsive UI that ensures accessibility and provides meaningful feedback for errors.
