@@ -1,8 +1,1 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+AI-Powered Text Processing Interface using Chrome's AI APIs. Built with React and Tailwind CSS. This application allows users to input text and utilize features such as summarization, translation, and language detection. Users are able to interact with a clean, responsive UI that ensures accessibility and provides meaningful feedback for errors.
