@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Queries from './Queries'
 import Replies from './Replies'
 
-import Langify from '/src/assets/langify.png'
+import Langify from '/src/assets/Langify.png'
 
 export default function Home() {
   const [text, setText] = useState('')
@@ -84,7 +84,8 @@ export default function Home() {
         ...prevChats,
         {
           type: 'error',
-          message: error || 'Something went wrong with translation. Please try again.',
+          message:
+            error || 'Something went wrong with translation. Please try again.',
           id: errorId,
         },
       ])
