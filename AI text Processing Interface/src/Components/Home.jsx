@@ -48,6 +48,21 @@ export default function Home() {
       return
     }
 
+    if (!self.ai || !self.ai.languageDetector) {
+    const errorId = Date.now();
+    setChats((prev) => [
+      ...prev,
+      {
+        type: 'error',
+        message: 'Language detection is not supported in your browser.',
+        id: errorId,
+      },
+    ]);
+    removeErrorAfterTimeout(errorId);
+    setText('')
+    return;
+  }
+
     const summaryNeeded = text.length > 150
 
     try {
@@ -186,7 +201,7 @@ export default function Home() {
                 />
               </div>
             ) : (
-              <div className="flex justify-center mb-4 text-red-500">
+              <div className="flex justify-center mt-5 mb-4 text-red-500">
                 {chat.message}
               </div>
             )}
