@@ -7,7 +7,7 @@ export default function Replies(props) {
 
 
   return (
-    <div className="flex flex-col gap-[0.5rem] bg-[#324eff] p-[1rem] rounded-[1rem] w-[330px] sm:w-[450px] md:w-[550px]">
+    <div className="flex flex-col gap-[0.5rem] bg-[#324eff] p-[1rem] rounded-[1rem] w-[330px] sm:w-[450px] md:w-[550px] lg:w-[650px] xl:w-[750px] 2xl:w-[900px] max-w-[60%]">
       <div className="flex gap-[1rem] justify-start items-start text-[#FFF]">
         <img src={translateImg} alt="translate image" className='mt-[0.3rem]'/>
         <div className="">{output}</div>

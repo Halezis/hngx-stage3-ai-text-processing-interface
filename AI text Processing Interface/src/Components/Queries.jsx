@@ -21,8 +21,8 @@ export default function Queries(props) {
   }
 
   return (
-    <div className='flex flex-col'>
-      <div className="flex flex-col gap-[0.5rem] bg-[#515b6d] p-[1rem] rounded-[1rem] w-[330px] sm:w-[450px] md:w-[550px]">
+    <div className='flex flex-col w-[330px] sm:w-[450px] md:w-[550px] lg:w-[650px] xl:w-[750px] 2xl:w-[900px] max-w-[60%]'>
+      <div className="flex flex-col gap-[0.5rem] bg-[#515b6d] p-[1rem] rounded-[1rem] ">
         <div className="text-[#FFF]">{input}</div>
         <div className="">Detected: {fullLanguageName}</div>
         <div className="flex items-center gap-4 rounded-lg flex-wrap justify-between">
