@@ -48,20 +48,6 @@ export default function Home() {
       return
     }
 
-    if (!self.ai || !self.ai.languageDetector) {
-    const errorId = Date.now();
-    setChats((prev) => [
-      ...prev,
-      {
-        type: 'error',
-        message: 'Language detection is not supported in your browser.',
-        id: errorId,
-      },
-    ]);
-    removeErrorAfterTimeout(errorId);
-    return;
-  }
-
     const summaryNeeded = text.length > 150
 
     try {
