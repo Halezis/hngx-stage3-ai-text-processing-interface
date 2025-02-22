@@ -12,10 +12,6 @@ export default function Home() {
   const [isTranslating, setIsTranslating] = useState(false)
   const [chats, setChats] = useState([])
 
-  function handleClear() {
-    setChats([])
-  }
-
   // Removes error message after a second
   const removeErrorAfterTimeout = (errorId) => {
     setTimeout(() => {
@@ -52,9 +48,25 @@ export default function Home() {
       return
     }
 
+    if (!self.ai || !self.ai.languageDetector) {
+    const errorId = Date.now();
+    setChats((prev) => [
+      ...prev,
+      {
+        type: 'error',
+        message: 'Language detection is not supported in your browser.',
+        id: errorId,
+      },
+    ]);
+    removeErrorAfterTimeout(errorId);
+    return;
+  }
+
     const summaryNeeded = text.length > 150
 
     try {
+      setIsTranslating(true)
+
       // create the detetctor
       const detector = await self.ai.languageDetector.create()
       const results = await detector.detect(text)
@@ -85,13 +97,14 @@ export default function Home() {
         {
           type: 'error',
           message:
-            error || 'Something went wrong with translation. Please try again.',
+            error.message || 'Something went wrong with detection. Please try again.',
           id: errorId,
         },
       ])
       removeErrorAfterTimeout(errorId)
     } finally {
       setIsTranslating(false)
+      setText('')
     }
   }
 
@@ -115,7 +128,7 @@ export default function Home() {
     }
     try {
       setIsTranslating(true)
-      // Create a translator that translates from English to French.
+      // Create a translator that translates from source to target language.
       const translator = await self.ai.translator.create({
         sourceLanguage: queryLanguage,
         targetLanguage: targetLanguage,
@@ -197,7 +210,7 @@ export default function Home() {
 
       {isTranslating && (
         <div className="fixed top-0 left-0 right-0 bottom-0 z-20 flex justify-center items-center bg-[#101728] opacity-75">
-          <div className="text-white text-lg">Translating...</div>
+          <div className="text-white text-lg">Text is being Processed</div>
         </div>
       )}
 
